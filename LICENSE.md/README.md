@@ -1,4 +1,4 @@
-# BANNER ADS INTEGRATION GUIDE FOR ANDROID
+# BANNERADS INTEGRATION GUIDE
 
 Android Library for Banner Ads Integration in Android
 
