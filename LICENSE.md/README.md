@@ -1,4 +1,4 @@
-# ADACTS BANNER-ADS ANDROID-SDK INTEGRATION GUIDE
+# BANNER ADS INTEGRATION GUIDE FOR ANDROID
 
 Android Library for Banner Ads Integration in Android
 
@@ -52,22 +52,4 @@ Android Library for Banner Ads Integration in Android
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        ADACTS_SDK.init(MainActivity.this);
-        bannerAdView=findViewById(R.id.bannerAd);
-    }
-
-    @Override
-    public void onResume(){
-        super.onResume();
-            bannerAdView.loadAd();
-    }
- }
-```
-
-
-
-   
-
-
+        setContentView(R.layout.activity
