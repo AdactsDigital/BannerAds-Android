@@ -60,13 +60,9 @@
 }
 
 
--keep class com.adacts.sdk_banner.ads.** { *; }
--keep class com.adacts.sdk_banner.networking.** { *; }
--keep class com.adacts.sdk_banner.ADACTS_SDK
-
+-keep class com.adacts.sdk_banner.** { *; }
 
 -keep class android.content.pm.**{*;}
-
 -keep class com.google.gson.** { *; }
 -keep public class com.google.gson.** {public private protected *;}
 -keep class com.google.inject.** { *; }
