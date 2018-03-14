@@ -60,12 +60,9 @@
 }
 
 
--keep class com.adacts.sdk_banner.** { *; }
-
--optimizations   code/simplification/arithmetic,!code/simplification/cast,!field/*,! class/merging/*,!method/inlining/*
--optimizationpasses 5
--allowaccessmodification
-
+-keep class com.adacts.sdk_banner.ads.** { *; }
+-keep class com.adacts.sdk_banner.networking.** { *; }
+-keep class com.adacts.sdk_banner.ADACTS_SDK
 
 
 -keep class android.content.pm.**{*;}
