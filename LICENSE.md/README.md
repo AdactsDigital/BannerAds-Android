@@ -53,3 +53,19 @@ Android Library for Banner Ads Integration in Android
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity
+        
+        
+         ADACTS_SDK.init(MainActivity.this);
+        bannerAdView=findViewById(R.id.bannerAd);
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+            bannerAdView.loadAd();
+    }
+}
+```
+
+
+
