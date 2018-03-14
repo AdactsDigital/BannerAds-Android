@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BannerAdView">
+        <attr name="adspace_id" format="string" />
+        <attr name="ad_size" format="integer">
+            <enum name="BANNER" value="0" />
+            <enum name="LARGE_BANNER" value="1" />
+            <enum name="MEDIUM_RECTANGLE" value="2"/>
+            <enum name="FULL_BANNER" value="3"/>
+            <enum name="LEADERBOARD" value="4"/>
+         <!--   <enum name="SMART_BANNER" value="5"/>-->
+        </attr>
+    </declare-styleable>
+</resources>
