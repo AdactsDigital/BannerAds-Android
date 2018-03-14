@@ -2,8 +2,9 @@
 
 Android Library for Banner Ads Integration in Android
 
-## STEP-1 :  Add `INTERNET` and `ACCESS_NETWORK_STATE` permissions and  `android:largeHeap="true"` in `application` tag of `AndroidManifest.xml` 
+### STEP-1 :  Add `INTERNET` and `ACCESS_NETWORK_STATE` permissions and  `android:largeHeap="true"` in `application` tag of `AndroidManifest.xml` 
 ------------------------------------------------------------------------------------------------------------------------------
+
    ```xml
    <?xml version="1.0" encoding="utf-8"?>
    
@@ -23,7 +24,7 @@ Android Library for Banner Ads Integration in Android
   </manifest>
    ```
    
-## STEP-2 : Add this BannerAdView in your activity's layout XML file
+### STEP-2 : Add this BannerAdView in your activity's layout XML file
 ---------------------------------------------------------------------
 ```xml
  <com.adacts.sdk_banner.ads.BannerAdView
@@ -34,12 +35,13 @@ Android Library for Banner Ads Integration in Android
         app:ad_size="BANNER"/>
 ```
 
-## STEP-3: In Your Activity
+### STEP-3: In Your Activity
 ---------------------------------------------------------------------
-       1. Initialize BannerAdView , 
-       2. Initialize ADACTS_SDK
-       3. findView By ID For BannerAdView
-       4. Call Load Ad Method On Activity's onResume Method.
+
+  1. Initialize BannerAdView , 
+  2. Initialize ADACTS_SDK
+  3. findView By ID For BannerAdView
+  4. Call LoadAd Method On Activity's onResume Method.
 
 ```java
     public class MainActivity extends AppCompatActivity {
