@@ -38,10 +38,10 @@ Android Library for Banner Ads Integration in Android
 ### STEP-3: In Your Activity
 ---------------------------------------------------------------------
 
-  1. Initialize BannerAdView , 
-  2. Initialize ADACTS_SDK,
-  3. findView By ID For BannerAdView,
-  4. Call LoadAd Method On Activity's onResume Method.
+ 1. Create BannerAdView Object, 
+ 2. Initialize ADACTS_SDK,
+ 3. findView By ID For BannerAdView Object,
+ 4. Call LoadAd Method On Activity's onResume Method.
 
 
 ```java
