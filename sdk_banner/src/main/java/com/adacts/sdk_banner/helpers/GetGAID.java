@@ -27,7 +27,7 @@ public class GetGAID extends AsyncTask<Void, Void, HashMap<String, String>> {
     @SuppressLint("HardwareIds")
     @Override
     protected HashMap<String, String> doInBackground(Void... voids) {
-           HashMap<String,String> ids  = new HashMap<String, String>();
+            HashMap<String,String> ids  = new HashMap<String, String>();
             SharedPreferences sharedPreferences= ADACTS_SDK.mContext.getSharedPreferences("ADACTS_SDK", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor=sharedPreferences.edit();
 

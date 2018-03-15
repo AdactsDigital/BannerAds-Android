@@ -1,6 +1,7 @@
 package com.adacts.sdk_banner;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
@@ -30,7 +31,10 @@ public class ADACTS_SDK {
             throw new IllegalArgumentException("CONTEXT CAN NOT NOT BE NULL");
         }else{
                 mContext=context;
-                getDeviceIds();
+                SharedPreferences sharedPreferences=ADACTS_SDK.mContext.getSharedPreferences("ADACTS_SDK",Context.MODE_PRIVATE);
+                if (sharedPreferences.getString("gid","NOTFOUND").equals("NOT_FOUND")){
+                    getDeviceIds();
+                }
                 Log.d(ADACTS_SDK_LOG,"ADACTS_SDK INITIALIZATION SUCCESSFUL");
         }
     }
@@ -38,6 +42,5 @@ public class ADACTS_SDK {
     private static final AsyncTask<Void, Void, HashMap<String, String>> getDeviceIds(){
       return new GetGAID().execute();
     }
-
 
 }

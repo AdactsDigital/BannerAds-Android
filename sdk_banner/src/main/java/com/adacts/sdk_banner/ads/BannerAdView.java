@@ -8,6 +8,7 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -145,7 +146,7 @@ public class BannerAdView extends android.support.v7.widget.AppCompatImageView i
             switch (visibility) {
                 case VISIBLE:
                     bannerIsVisible=true;
-                    //bannerAdView.onBannerVisible();
+                    bannerAdView.onBannerVisible();
                     break;
                 case INVISIBLE:
                 case GONE:
@@ -166,13 +167,13 @@ public class BannerAdView extends android.support.v7.widget.AppCompatImageView i
         handler.postDelayed(new Runnable() {
            @Override
            public void run() {
-               bannerAdView.onBannerVisible();
+
             }
         }, 50);
     }
 
         private void makeAdRequest(){
-        //Log.d("SDK_LOG","REQUEST FOR NEW BANNER");
+        Log.d("SDK_LOG","REQUEST FOR NEW BANNER");
         mAdRequest=new AdRequest();
         if (ADACTS_SDK.mContext!=null){
             SharedPreferences sharedPreferences= ADACTS_SDK.mContext.getSharedPreferences("ADACTS_SDK",Context.MODE_PRIVATE);
@@ -194,29 +195,46 @@ public class BannerAdView extends android.support.v7.widget.AppCompatImageView i
             CallUtils.enqueueWithRetry(ApiInterface.ApiClient.getApiInterface().CallBannerApi(ADSPACE_ID,mAdRequest.getBuildInfo(),mAdRequest.getPublisherAppInfo(), ids, mAdRequest.getNetworkInfo(), banner), new Callback<AdResponse>() {
                 @Override
                 public void onResponse(@NonNull Call<AdResponse> call, @NonNull Response<AdResponse> response) {
-                    //Log.d("SDK_LOG","RESPONSE CODE ="+response.code());
+                    Log.d("SDK_LOG","RESPONSE CODE ="+response.code());
                     if (response.code()==200 && response.isSuccessful() && response.body()!=null){
                         try {
                             CREATIVE_URL=response.body().getCREATIVE_URL();
                             CLICK_URL=response.body().getCLICK_URL();
                             AUCTION_ID=response.body().getAUCTION_ID();
                             REFRESH_TIME=response.body().getREFRESH_TIME();
-                            Glide.with(ADACTS_SDK.mContext)
-                                    .asGif()
-                                    .load(CREATIVE_URL)
-                                    .listener(new RequestListener<GifDrawable>() {
-                                        @Override
-                                        public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<GifDrawable> target, boolean isFirstResource) {
-                                            bannerAdView.onBannerError(e);
-                                            return false;
-                                        }
-                                        @Override
-                                        public boolean onResourceReady(GifDrawable resource, Object model, Target<GifDrawable> target, DataSource dataSource, boolean isFirstResource) {
-                                            bannerAdView.onBannerLoaded();
-                                            return false;
-                                        }
-                                    })
-                                    .into(bannerAdView);
+                            if (Build.VERSION.SDK_INT>=26){
+                                Glide.with(ADACTS_SDK.mContext).load(CREATIVE_URL).listener(new RequestListener<Drawable>() {
+                                    @Override
+                                    public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                                        bannerAdView.onBannerError(e);
+                                        return false;
+                                    }
+
+                                    @Override
+                                    public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                                        bannerAdView.onBannerLoaded();
+                                        return false;
+                                    }
+                                }).into(bannerAdView);
+                            }else{
+                                Glide.with(ADACTS_SDK.mContext)
+                                        .asGif()
+                                        .load(CREATIVE_URL)
+                                        .listener(new RequestListener<GifDrawable>() {
+                                            @Override
+                                            public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<GifDrawable> target, boolean isFirstResource) {
+                                                bannerAdView.onBannerError(e);
+                                                return false;
+                                            }
+                                            @Override
+                                            public boolean onResourceReady(GifDrawable resource, Object model, Target<GifDrawable> target, DataSource dataSource, boolean isFirstResource) {
+                                                bannerAdView.onBannerLoaded();
+                                                return false;
+                                            }
+                                        })
+                                        .into(bannerAdView);
+                            }
+
                         }catch (Exception e){
                             e.printStackTrace();
                         }
