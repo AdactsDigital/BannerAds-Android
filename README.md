@@ -2,7 +2,30 @@
 
 Android Library for Banner Ads Integration in Android
 
-### STEP-1 :  Add `INTERNET` and `ACCESS_NETWORK_STATE` permissions and  `android:largeHeap="true"` in `application` tag of `AndroidManifest.xml` 
+### STEP-1 : Add this dependency in your `build.gradle (Module:app)` file.
+------------------------------------------------------------------------------------------------------------------------------
+
+
+```
+dependencies {
+ ...
+ implementation 'com.github.AdactsDigital:BannerAds-Android:v3.6'
+ }
+```
+
+### STEP-2 : Add this to your `build.gradle (Project:YourAppName)` file.
+------------------------------------------------------------------------------------------------------------------------------
+
+```
+allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+
+### STEP-3 :  Add `android:largeHeap="true"` in `application` tag of `AndroidManifest.xml` 
 ------------------------------------------------------------------------------------------------------------------------------
 
    ```xml
@@ -10,10 +33,7 @@ Android Library for Banner Ads Integration in Android
    
    <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.app">
-    
-         <uses-permission android:name="android.permission.INTERNET" />
-         <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    
+      
     <application
        ...
         android:largeHeap="true"
@@ -24,7 +44,7 @@ Android Library for Banner Ads Integration in Android
   </manifest>
    ```
    
-### STEP-2 : Add this BannerAdView in your activity's layout XML file
+### STEP-4 : Add this BannerAdView in your activity's layout XML file
 ---------------------------------------------------------------------
 ```xml
  <com.adacts.sdk_banner.ads.BannerAdView
@@ -35,7 +55,7 @@ Android Library for Banner Ads Integration in Android
         app:ad_size="BANNER"/>
 ```
 
-### STEP-3: In Your Activity
+### STEP-5: In Your Activity
 ---------------------------------------------------------------------
 
  1. Create BannerAdView Object, 
