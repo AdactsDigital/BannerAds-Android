@@ -9,7 +9,7 @@ Android Library for Banner Ads Integration in Android
 ```
 dependencies {
  ...
- implementation 'com.github.AdactsDigital:BannerAds-Android:v2.4'
+ implementation 'com.github.AdactsDigital:BannerAds-Android:v2.8'
  }
 ```
 
@@ -54,6 +54,13 @@ allprojects {
         app:adspace_id="YOUR_ADSPACE_ID"  
         app:ad_size="BANNER"/>
 ```
+### List of ad_size supported : 
+---------------------------------------------------------------------
+* BANNER (320 x 50)
+* LARGE_BANNER (320 X 100)
+* MEDIUM_RECTANGLE (300 X 250)
+* FULL_BANNER (468 X 60)
+* LEADERBOARD (728 X 90)
 
 ### STEP-5: In Your Activity
 ---------------------------------------------------------------------
