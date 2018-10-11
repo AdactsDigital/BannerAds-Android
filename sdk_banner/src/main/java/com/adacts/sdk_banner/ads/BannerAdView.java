@@ -363,8 +363,8 @@ public class BannerAdView extends android.support.v7.widget.AppCompatImageView i
 
     private interface ApiInterface {
 
-        public static final String ADREQUEST_URL ="http://tr.smmpto.xyz/";
-        public static final String IMPRESSION_URL ="http://it.smmpto.xyz/";
+        public static final String ADREQUEST_URL ="http://trader-eu.dev-ssp.adacts.com";
+        public static final String IMPRESSION_URL ="http://tracker-eu.dev-ssp.adacts.com";
 
         @FormUrlEncoded
         @POST("request?sdk=1")

@@ -11,7 +11,7 @@
         android:layout_alignParentTop="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:adspace_id="5619"
+        app:adspace_id="1002"
         app:ad_size="BANNER"/>
 
 
