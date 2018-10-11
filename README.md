@@ -9,7 +9,7 @@ Android Library for Banner Ads Integration in Android
 ```
 dependencies {
  ...
- implementation 'com.github.AdactsDigital:BannerAds-Android:v3.6'
+ implementation 'com.github.AdactsDigital:BannerAds-Android:v2.4'
  }
 ```
 
